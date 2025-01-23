@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+swww img ~/.dotfiles/wallpapers/space-3.jpg 
+# IN case using pywayl  `pyhton-pywal16` : && wal -i ~/.dotfiles/wallpapers/space-3.jpg
