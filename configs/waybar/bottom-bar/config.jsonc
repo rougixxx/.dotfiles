@@ -56,6 +56,7 @@
         "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
     },
     "clock": {
+        "timezone": "Africa/Algiers",
         "format": "{:%A, %I:%M %p}",
         "tooltip": true,
       /*  "tooltip-format": "{:  %A, %B %e %Y}"*/

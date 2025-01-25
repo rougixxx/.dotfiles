@@ -5,7 +5,7 @@
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
-    "height": 35,
+    "height": 30,
     "modules-left": [
         "cpu",
         "memory",
@@ -18,11 +18,13 @@
     ],
     "modules-right": [
         "tray",
+        "hyprland/language",
         "pulseaudio",
         "pulseaudio#microphone",
         "backlight",
-        "hyprland/language",
-      
+        "custom/swaync"
+
+     /*   "custom/binds",*/     
     ],
        "cpu": {
         "interval": 10,
@@ -68,7 +70,7 @@
             "4": [],
     },
     "format-icons": {
-        "active": "",
+        "active": " ",
         "default": "🗨",
     },
 
@@ -90,8 +92,6 @@
     }
     },
 
-
-
     "hyprland/language": {
         "interval": 30,
         "format": " {}",
@@ -102,18 +102,13 @@
         "signal": 8
     },
 
-    "custom/power_btn": {
-        "format": "",
-        "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
-        "tooltip": false
-    },
 
  
     "battery": {
         "states": {
             "good": 90,
-            "warning": 30,
-            "critical": 20
+            "warning": 20,
+            "critical": 10
         },
         "format": "{icon}",
         "format-charging": " {capacity}%",
@@ -163,27 +158,42 @@
         "format-alt-click": "click-right",
         "format-alt": "{icon} {percent}%",
         "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "tooltip": true,
+        "tooltip-format": "Brightness at {percent}%",
         "on-scroll-up": "~/.dotfiles/configs/waybar/scripts/brightness --inc",
         "on-scroll-down": "~/.dotfiles/configs/waybar/scripts/brightness --dec"
     },
 
     "tray": {
-        "icon-size": 18,
+        "icon-size": 20,
         "show-passive-items": true,
-        "spacing": 12
+        "spacing": 15
     },
-    "custom/binds": {
-        "format": "󰐾",
-        "exec": "~/.dotfiles/configs/waybar/scripts/binds",
-        "return-type" : "json",
-        "format": "{}",
-        "interval": 30,
-        "tooltip": "true"
-
-    }
+    "custom/swaync": {
+        "tooltip": true,
+        "tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
+        "format": "{} {icon} ",
+        "format-icons": {
+        "notification": "<span foreground='red'><sup></sup></span>",
+        "none": "",
+        "dnd-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-none": "",
+        "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "inhibited-none": "",
+        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "sleep 0.1 && swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true,
+    },
+/*q*/
     /*still to be added 
         the binds custom module to the right
-        the swayn-nc client
+        add an entry to change the background image between space1/space3
     */
 
 }

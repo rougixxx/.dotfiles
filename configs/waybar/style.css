@@ -1,20 +1,21 @@
 @import "../../.cache/wal/colors-waybar.css";
+@import "../../.dotfiles/configs/waybar/themes/mocha.css";
 
 * {
     border: none;
     border-radius: 0;
     font-family: "FiraCode Nerd Font";
     font-weight: bold;
-    font-size: 17px;
+    font-size: 18px;
     min-height: 0;
 }
 
 window#waybar {
     /*background: rgba(21, 18, 27, 0);*/
-    background: rgba(0, 0, 0, 0);
-/*    color: @foreground;*/
-    color: #f5f5fe;
-}
+    background: transparent;
+/*    color: #f5f5fe;*/
+    color: @f6f7fc;
+  }
 
 tooltip {
     background: @background;
@@ -28,6 +29,26 @@ tooltip {
 tooltip label{
     color: @foreground;
 }
+.modules-left,
+.modules-right,
+.modules-center {
+   margin-top: 5px;
+}
+
+
+/*********************************LEFT MODULES STYLING*********************************/
+.modules-left {
+    margin-left: 5px;
+}
+
+#workspaces {
+    background: @surface0;
+    border-radius: 12px;
+    margin-left: 0px;
+    padding: 0px 5px;
+
+}
+
 
 #workspaces button {
     padding: 5px;
@@ -36,65 +57,130 @@ tooltip label{
 }
 
 #workspaces button.active {
-    color: #9bd6f4;
+    /*color: #9bd6f4;*/
+    color: @blue;
     background:  rgba(0, 0, 0, 0);
     border-radius: 10px;
 }
 
 #workspaces button:hover {
-    background: #11111b;
+    background: #fab387;
     color: #cdd6f4;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
-
-
-#custom-power_btn,
-#window,
 #cpu,
-#disk,
-#custom-updates,
 #memory,
-#clock,
-#battery,
-#pulseaudio,
-#network,
-#tray,
-#temperature,
-#backlight {
-    background: rgba(21, 18, 27, 0);
+#disk,
+#battery {
+    background: @surface0;
     opacity: 1;
-    padding: 0px 8px;
-    margin: 0px 3px;
+    padding: 0px 10px;
     border: 0px;
 }
-#workspaces {
-    padding-right: 0px;
-    padding-left: 5px;
+#cpu {
+ border-radius: 12px 0px 0px 12px;
+}
+#memory {
+   color: @red;
+}
+#disk {
+    color: @green;
 }
 
+#battery {
+        font-size: 20px;
+        margin-right: 20px;
+        border-radius: 0px 12px 12px 0px;
+}
+#battery.charging {
+    color: white;
+    background-color: #26A65B;
+    padding-left: 15px;
+    font-size: 15px;
+}
+#battery.good {
+    color: @sky;
+}
+#battery.discharging:not(.good) {
+    color: @text;
+}
+#battery.discharging.warning {
+   /* background-color: transparent;*/
+    color: @yellow;
+}
+
+@keyframes blink {
+
+    to {
+        opacity: 1; 
+    }
+
+}
+
+
+#battery.critical:not(.charging) {
+    opacity: 0;
+    color: #f53c3c;
+    animation-name: blink;
+    font-size: 22px;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
+/*********************************CENTERED MODULES STYLING*********************************/
+.modules-center {
+    background: @surface0;
+   border-radius: 12px;
+}
 #window {
-    border-radius: 10px;
-    margin-left: 0px;
-    margin-right: 0px;
+    padding: 10px 10px;
+    font-size: 5px;
 }
 
-#custom-launch_firefox, 
-#custom-launch_thunderbird,
-#custom-launch_thunar,
-#custom-launch_wofi,
-#custom-launch_kitty,
-#custom-weather {
-    margin-left: 0px;
-    border-right: 0px;
-    font-size: 24px;
-    margin-right: 20px;
+/*********************************RIGHT MODULES STYLING*********************************/
+
+.modules-right {
+    margin-right: 5px;
+    padding: 5px 5px;
 }
 
-#custom-launch_firefox, 
-#custom-launch_kitty {
-    font-size: 20px;
+
+
+#tray,
+#pulseaudio,
+#backlight,
+#language,
+#custom-swaync  {
+    background: @surface0;
+    opacity: 1;
+    padding: 0px 12px;
+    border: 0px;
 }
-#temperature.critical {
-  background-color: red;
+#tray {
+    margin-right: 15px;
+    border-radius: 12px;
+    border: 2px solid @maroon ;
+}
+
+#language {
+    border-radius: 12px 0px 0px 12px;
+
+}
+#backlight {
+
+    color: @sky;
+}
+#pulseaudio {
+    color: @green;
+}
+#pulseaudio.microphone {
+    color: @peach;
+}
+#custom-swaync {
+    color: @lavender;
+    border-radius: 0px 12px 12px 0px;
 }
