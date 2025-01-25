@@ -3,7 +3,7 @@
   "positionX": "right",
   "positionY": "top",
   "layer": "overlay",
-  "layer-shell": true,
+  "layer-shell": false,
   "cssPriority": "user",
   "control-center-layer": "top",
   "control-center-margin-top": 15,
@@ -13,8 +13,8 @@
   "notification-2fa-action": true, /*default is true*/
   "notification-inline-replies": false,
   "notification-icon-size": 32,
-  "notification-body-image-height": 150,
-  "notification-body-image-width": 150,
+  "notification-body-image-height": 250,
+  "notification-body-image-width": 250,
   "notification-window-width": 400, /*default is 500*/
   "timeout": 5,
   "timeout-low": 3,
@@ -23,7 +23,7 @@
   "fit-to-screen": false, /*default is true*/
   "relative-timestamps": true,
   "control-center-width": 500,
-  "control-center-height": 800,
+  "control-center-height": 900,
   "image-visibility": "when-available",
   "transition-time": 200,
   "hide-on-clear": false,
@@ -74,28 +74,34 @@
     },
     "menubar": { /*style this using man 5 swaync*/
       "menu#power": {
-        "label": "󰐥",
+        "label": "󰐥 Power",
         "position": "right",
+        "animation-type": "slide_up",
+        "animation-duration": 220,
         "actions": [
           {
-            "label": "Shut down Pc",
+            "label": "Power Off",
             "command": "shutdown now"
           },
-            {
-            "label": " Reboot Pc",
+          {
+            "label": " Reboot",
             "command": "reboot"
           }
-
-
-        ] 
+        ]
       },
       "menu#screenshot": {
         "label": "Screenshot",
-        "position": "right",
+        "position": "left",
+        "animation-type": "slide_down",
+        "animation-duration": 220,
         "actions": [
           {
-            "label": "Take a Screenshot",
+            "label": "Just a Copy",
             "command": "hyprshot -m region --clipboard-only"
+          },
+          {
+            "label": "Save and Copy",
+            "command": "hyprshot -m region "
           }
         ] 
       }
@@ -116,10 +122,6 @@
                   "command": "hyprctl dispatch exit"
               },
               {
-                  "label": "󰀝",
-                  "command": "bash -c $HOME/.config/hypr/scripts/AirplaneMode.sh"
-              },
-              {
                   "label": "󰝟",
                   "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
               },
@@ -128,9 +130,9 @@
                   "command": "blueman-manager"
               },
               {
-                 "label": "WIFI-icon",
+                 "label": " ",
                  "type": "toggle",
-                 "command": "kitty --start-as=normal --title Networks sh -c 'nmtui'"
+                 "command": "nm-connection-editor"
                   /*"active": true,
                   "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && nmcli radio wifi on || nmcli radio wifi off'",
                   "update_command": "sh -c '[[ $(nmcli radio wifi) == \"enabled\" ]] && echo true || echo false'"*/
