@@ -2,6 +2,7 @@
 
 
 # Send a notification if the laptop battery is either low or is fully charged.
+# for debugging the service: `journalctl -u battery-alert.service`
 
 
 export DISPLAY=:0
@@ -26,7 +27,7 @@ elif [ "$BATTERY_DISCHARGING" -eq 0 ] && [ -f $EMPTY_FILE ]; then
 fi
 
 # If the battery is charging and is full (and has not shown notification yet)
-if [ "$BATTERY_LEVEL" -gt 99 ] && [ "$BATTERY_DISCHARGING" -eq 0 ] && [ ! -f $FULL_FILE ]; then
+if [ "$BATTERY_LEVEL" -gt 97 ] && [ "$BATTERY_DISCHARGING" -eq 0 ] && [ ! -f $FULL_FILE ]; then
 	notify-send "Battery Charged" "Battery is fully charged." -i ~/.dotfiles/icons/battery-full.png
 	touch $FULL_FILE
 	# If the battery is low and is not charging (and has not shown notification yet)
