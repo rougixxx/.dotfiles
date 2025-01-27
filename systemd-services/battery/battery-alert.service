@@ -1,0 +1,11 @@
+[Unit]
+Description=Battery alert service of low battery levelsn
+
+[Service]
+ExecStart=/home/pain/.dotfiles/scripts/battery-alert.sh
+User=pain
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+  

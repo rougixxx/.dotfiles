@@ -88,7 +88,7 @@
           "(.*) - kitty": "-> [$1]",
           "(.*) - Discord": "Discord -> $1",
           "(.*) - Sublime (.*)": "Subl-> [$1]",
-
+          "(.*) - Obsidian Vault (.*)": "Notes-> [$1]",
     }
     },
 

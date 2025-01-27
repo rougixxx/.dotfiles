@@ -1,5 +1,5 @@
 #!/bin/bash
-#!/bin/bash
+
 
 # Send a notification if the laptop battery is either low or is fully charged.
 
@@ -9,10 +9,10 @@ export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
 
 # Battery percentage at which to notify
 WARNING_LEVEL=15
-CRITICAL_LEVEL=5
+CRITICAL_LEVEL=10
 BATTERY_DISCHARGING=$(acpi -b | grep "Battery 0" | grep -c "Discharging")
 BATTERY_LEVEL=$(acpi -b | grep "Battery 0" | grep -P -o '[0-9]+(?=%)')
-
+echo $BATTERY_LEVEL
 # Use files to store whether we've shown a notification or not (to prevent multiple notifications)
 FULL_FILE=/tmp/batteryfull
 EMPTY_FILE=/tmp/batteryempty

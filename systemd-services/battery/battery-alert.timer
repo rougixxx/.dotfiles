@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Battery Level Check Every 5 Minutes for not 
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=5min
+Unit=battery-alert.service
+
+[Install]
+WantedBy=timers.target
