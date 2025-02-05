@@ -102,8 +102,12 @@ tooltip label{
 #battery.good {
     color: @sky;
 }
+#battery.normal {
+    color: @green;
+}
 #battery.discharging:not(.good) {
     color: @text;
+
 }
 #battery.discharging.warning {
    /* background-color: transparent;*/
