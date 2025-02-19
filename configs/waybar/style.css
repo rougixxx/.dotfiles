@@ -98,11 +98,16 @@ tooltip label{
     background-color: #26A65B;
     padding-left: 15px;
     font-size: 15px;
+
 }
+#battery.charging.good {
+    color: white;
+}
+
 #battery.good {
     color: @sky;
 }
-#battery.normal {
+#battery.discharging.normal {
     color: @green;
 }
 #battery.discharging:not(.good) {
