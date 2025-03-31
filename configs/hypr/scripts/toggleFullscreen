@@ -1,0 +1,24 @@
+#!/usr/bin/bash
+
+windowJson=$(hyprctl --instance 0 activewindow -j)
+
+currentWindowClass=$(jq '.class' -r <<< "$windowJson")
+
+#this is what the client thinks it is set to
+currentWindowFullscreen=$(jq '.fullscreenClient' -r <<< "$windowJson")
+
+#this is what the hyprland window is set to
+currentWindowFullscreenInternal=$(jq '.fullscreen' -r <<< "$windowJson")
+
+case "$currentWindowClass" in
+    "firefox")
+        if [[ "$currentWindowFullscreenInternal" == "0" ]]; then
+            hyprctl --instance 0 dispatch fullscreenstate 3 "$currentWindowFullscreen"
+        else
+            hyprctl --instance 0 dispatch fullscreenstate 0 "$currentWindowFullscreen"
+        fi
+        ;;
+    *)
+        hyprctl --instance 0 dispatch fullscreen
+        ;;
+esac
