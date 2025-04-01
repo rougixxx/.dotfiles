@@ -1,0 +1,31 @@
+#!/bin/sh
+
+upower=$(upower -i $(upower -e | grep BAT))
+
+bat=$(grep percentage <<< $upower | awk "{print \$2}" | sed -e "s/%//")
+
+if ! grep "discharging" <<< $upower >/dev/null; then
+    echo -n "󱐋"
+fi
+
+if ((bat >= 95 )); then
+    echo -n "󰁹 " 
+elif ((bat >= 85 )); then
+    echo -n "󰂂 "
+elif ((bat >= 75 )); then
+    echo -n "󰂁 "
+elif ((bat >= 55 )); then
+    echo -n "󰁿 "
+elif ((bat >= 45 )); then
+    echo -n "󰁽 "
+elif ((bat >= 25 )); then
+    echo -n "󰁼 "
+elif ((bat >= 10 )); then
+    echo -n "󰁻 "
+else
+    echo -n "󰂎 "
+fi
+
+echo "$bat%"
+
+#  ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
