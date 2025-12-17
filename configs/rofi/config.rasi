@@ -1,0 +1,36 @@
+/**
+ * Rofi Theme File
+ * Rofi Version: 2.0.0-dirty
+ **/
+
+/*****----- Configuration -----*****/
+
+configuration {
+    modi: "drun,run,window,ssh";
+    show-icons: true;
+    display-drun: " ";
+    display-run: " ";
+    display-window: " ";
+    display-ssh: "SSH";
+    drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+    window-format: "{c} · {t}";
+    fixed-num-lines: true;
+    case-smart: true;
+    cycle: true;
+    scroll-method: 1;
+    icon-theme: "Papirus";
+    //auto-select: true; # removed bcz it will direclty lunch the lone app
+    terminal: "kitty";
+    ssh-client: "ssh";
+    ssh-command: "{terminal} --hold -e {ssh-client} {host} [-p {port}]";
+    parse-known-hosts: true;
+
+    // exit rofi when rofi has not been interacted with for 20 seconds. 
+    timeout {
+      delay:  20;
+      action: "kb-cancel";
+  }
+}
+
+@theme "~/.dotfiles/configs/rofi/theme.rasi"
+

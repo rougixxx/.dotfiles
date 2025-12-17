@@ -1,0 +1,5 @@
+Host github-auth
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_auth
+    RequestTTY no
