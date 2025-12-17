@@ -1,38 +1,38 @@
-@import "../../.cache/wal/colors-waybar.css";
 @import "../../.dotfiles/configs/waybar/color-themes/mocha.css";
 
 * {
     border: none;
     border-radius: 0;
-    font-family: "FiraCode Nerd Font";
+    font-family: "JetBrainsMonoNL Nerd Font"; /* FiraCod Nerd Font */
     font-weight: bold;
+    font-style: italic;
     font-size: 18px;
     min-height: 0;
 }
 
 window#waybar {
-    /*background: rgba(21, 18, 27, 0);*/
     background: transparent;
-/*    color: #f5f5fe;*/
-    color: @f6f7fc;
+    color: @macchiato-text;
   }
 
 tooltip {
-    background: @background;
-    opacity: 0.9;
+  /*  background: @background; */
+    background: @base;
+    opacity: 0.85;
     border-radius: 10px;
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
-    border-color: @color2;
+    border-color: @yellow;
 }
 
 tooltip label{
-    color: @foreground;
+    /*color: @foreground;*/
+    color: @peach;
 }
 .modules-left,
 .modules-right,
 .modules-center {
-   margin-top: 5px;
+   margin-top: 2px;
 }
 
 
@@ -45,26 +45,24 @@ tooltip label{
     background: @surface0;
     border-radius: 12px;
     margin-left: 0px;
-    padding: 0px 5px;
-
+    padding: 0px 4px;
 }
-
 
 #workspaces button {
     padding: 5px;
-    color: #f6f7fc;
+    color: @text1;
     margin-right: 5px;
 }
 
 #workspaces button.active {
     /*color: #9bd6f4;*/
     color: @blue;
-    background:  rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0);
     border-radius: 10px;
 }
 
 #workspaces button:hover {
-    background: #fab387;
+    background: @peach;
     color: #cdd6f4;
     border-radius: 15px;
 }
@@ -80,12 +78,13 @@ tooltip label{
 }
 #cpu {
  border-radius: 12px 0px 0px 12px;
+ color: @yellow;
 }
 #memory {
    color: @red;
 }
 #disk {
-    color: @green;
+    color: @sapphire;
 }
 
 #battery {
@@ -144,10 +143,10 @@ tooltip label{
 .modules-center {
     background: @surface0;
    border-radius: 12px;
+   padding: 4px 12px;
 }
-#window {
-    padding: 10px 10px;
-    font-size: 5px;
+#clock {
+    font-size: 16px;
 }
 
 /*********************************RIGHT MODULES STYLING*********************************/
@@ -156,8 +155,6 @@ tooltip label{
     margin-right: 5px;
     padding: 5px 5px;
 }
-
-
 
 #tray,
 #pulseaudio,
@@ -177,10 +174,9 @@ tooltip label{
 
 #language {
     border-radius: 12px 0px 0px 12px;
-
+    color: @rosewater;
 }
 #backlight {
-
     color: @sky;
 }
 #pulseaudio {

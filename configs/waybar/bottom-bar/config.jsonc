@@ -7,7 +7,8 @@
     "gtk-layer-shell": true,
     "height": 30,
     "modules-left": ["custom/launch_wofi", "custom/launch_firefox", "custom/launch_kitty","custom/launch_thunar"],
-    "modules-right": ["temperature","custom/weather", "clock", "custom/power_btn"],
+    "modules-center": [ "hyprland/window" ],
+    "modules-right": ["temperature","custom/weather", "custom/power_btn"],
     
 
     "custom/launch_wofi": {
@@ -32,6 +33,23 @@
         "tooltip": false
     },
 
+        "hyprland/window": {
+        "format": "{}",
+        "max-length": 60,
+        "separate-outputs": true,
+        "offscreen-css" : true,
+        "offscreen-css-text": "(inactive)",
+        "rewrite": {
+          "(.*) — Mozilla Firefox": "  $1",
+          "(.*) - fish": "-> [$1]",
+          "(.*) - zsh": "-> [$1]",
+          "(.*) - kitty": "-> [$1]",
+          "(.*) - Discord": "Discord -> $1",
+          "(.*) - Sublime (.*)": "Subl-> [$1]",
+          "(.*) - Obsidian Vault (.*)": "Notes-> [$1]",
+    }
+    },
+
     "custom/power_btn": {
         "format": "",
         "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
@@ -54,32 +72,5 @@
         "critical-threshold": 70,
         "format-critical": " {temperatureC}°C",
         "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
-    },
-    "clock": {
-        "timezone": "Africa/Algiers",
-        "format": "{:%A, %I:%M %p}",
-        "tooltip": true,
-      /*  "tooltip-format": "{:  %A, %B %e %Y}"*/
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "calendar": {
-                    "mode"          : "year",
-                    "mode-mon-col"  : 3,
-                    "weeks-pos"     : "right",
-                    "on-scroll"     : 1,
-                    "format": {
-                              "months":     "<span color='#ffead3'><b>{}</b></span>",
-                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-                              }
-                    },
-        "actions":  {
-                    "on-click-right": "mode",
-                    "on-scroll-up": "tz_up",
-                    "on-scroll-down": "tz_down",
-                    "on-scroll-up": "shift_up",
-                    "on-scroll-down": "shift_down"
-                    }
     }
 }
