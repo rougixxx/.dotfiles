@@ -174,7 +174,7 @@ tooltip label{
 
 #language {
     border-radius: 12px 0px 0px 12px;
-    color: @rosewater;
+    color: @latte-base;
 }
 #backlight {
     color: @sky;
