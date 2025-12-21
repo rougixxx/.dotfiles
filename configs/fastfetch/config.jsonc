@@ -1,0 +1,228 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "type": "auto",
+     "source": "~/.dotfiles/pics/pain-modified.png",
+     "height": 14,
+     "width": 28,
+     "padding": {
+      "top": 1,
+      "left": 1, 
+      "right": 1,    
+     },
+     "position": "left"
+    },
+  "display": {
+    "stat": false,
+    "pipe": false,
+    "showErrors": false,
+    "disableLinewrap": true,
+    "hideCursor": true,
+    "separator": " ",
+    "color": {
+      "keys": "",
+      "title": "",
+      "output": "",
+      "separator": ""
+    },
+    "brightColor": true,
+    "duration": {
+      "abbreviation": true,
+      "spaceBeforeUnit": "never"
+    },
+    "size": {
+      "maxPrefix": "YB",
+      "binaryPrefix": "iec",
+      "ndigits": 2,
+      "spaceBeforeUnit": "default"
+    },
+    "temp": {
+      "unit": "D",
+      "ndigits": 1,
+      "color": {
+        "green": "32",
+        "yellow": "93",
+        "red": "91"
+      },
+      "spaceBeforeUnit": "default"
+    },
+    "percent": {
+      "type": [
+        "num",
+        "num-color"
+      ],
+      "ndigits": 0,
+      "color": {
+        "green": "32",
+        "yellow": "93",
+        "red": "91"
+      },
+      "spaceBeforeUnit": "default",
+      "width": 0
+    },
+    "bar": {
+      "char": {
+        "elapsed": "■",
+        "total": "-"
+      },
+      "border": {
+        "left": "[ ",
+        "right": " ]",
+        "leftElapsed": "",
+        "rightElapsed": ""
+      },
+      "color": {
+        "elapsed": "auto",
+        "total": "97",
+        "border": "97"
+      },
+      "width": 10
+    },
+    "fraction": {
+      "ndigits": 2
+    },
+    "noBuffer": false,
+    "key": {
+      "width": 0,
+      "type": "string",
+      "paddingLeft": 0
+    },
+    "freq": {
+      "ndigits": 2,
+      "spaceBeforeUnit": "default"
+    },
+    "constants": []
+  },
+  "general": {
+    "thread": true,
+    "processingTimeout": 5000,
+    "detectVersion": true,
+    "playerName": "",
+    "dsForceDrm": false
+  },
+      "modules": [
+        {
+            "key": "╭──────────────────╮",
+            "type": "custom"
+        },
+
+        {
+            "key": "│ {##f5e0dc} user      {#keys}     │",
+            "type": "title",
+            "format": "{1}@{2}",
+        },
+        {
+          "type": "command",
+          "key": "│ {##f5c2e7}󱦟 os age  {#keys}       │",
+          "text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days"
+        },
+        {
+            "key": "│ {##cba6f7}󰅐 uptime  {#keys}       │",
+            "type": "uptime"
+        },
+         {
+            "key": "│ {##f38ba8}󰍛 cpu     {#keys}       │",
+            "type": "cpu",
+            "showPeCoreCount": true
+        },
+        {
+          "type": "gpu",
+           "key": "│ {##eba0ac}{icon} gpu    {#keys}        │",
+          "driverSpecific": false,
+          "detectionMethod": "pci",
+          "temp": true,
+          "hideType": "none",
+          "percent": {
+            "green": 50,
+            "yellow": 80,
+            "type": 0
+          }
+       },
+         {
+            "key": "│ {##fab387}{icon} monitor{#keys}        │",
+            "type": "display",
+        },
+        {
+            "key": "│ {##f9e2af}{icon} distro  {#keys}       │",
+            "type": "os"
+        },
+        {
+          "key": "│ {##a6e3a1}{icon} packages  {#keys}     │",
+          "type": "packages"
+        },
+        {
+            "key": "│ {##94e2d5} kernel  {#keys}       │",
+            "type": "kernel"
+        },
+        {
+            "key": "│ {##89dceb} wm      {#keys}       │",
+            "type": "wm"
+        },
+        {
+            "key": "│ {##74c7ec}󰇄 desktop {#keys}│",
+            "type": "de"
+        },
+         {
+            "key": "│ {##89b4fa}{icon} Login-Manager {#keys} │",
+            "type": "lm",
+            "format": "{service}({version}) on {type} "
+        },
+        {
+          "key": "│ {##b4befe}{icon} cursor      {#keys}   │",
+          "type": "cursor",
+        },
+         
+        {
+            "key": "│ {##cdd6f4} term    {#keys}       │",
+            "type": "terminal"
+        },
+        {
+            "key": "│ {##f4dbd6} shell   {#keys}       │",
+            "type": "shell"
+        },
+          {
+            "key": "│ {##f5bde6} term-font {#keys}     │",
+            "type": "terminalfont",
+        },
+        {
+            "key": "│ {##c6a0f6}{icon} icons {#keys}         │",
+            "type": "icons",
+        },
+        {
+            "key": "│ {##ed8796}󰉉 partition{#keys}      │",
+            "type": "disk",
+            "folders": ["/", "/home"],
+            "format": "{1} / {2} ({3}) - ({9}) - {20} "
+        },
+        {
+            "key": "│ {##f5a97f} ram  {#keys}          │",
+            "type": "memory"
+        },
+        {
+            "type": "swap",
+            "key": "│ {##a6da95}{icon} swap  {#keys}         │",
+            "percent": {
+              "green": 50,
+              "yellow": 80,
+              "type": 0
+               },
+            "keyIcon": "󰓡",
+            "separate": false
+      },
+        {
+            "key": "├──────────────────┤",
+            "type": "custom"
+        },
+        {
+            "key": "│ {#39} colors  {#keys}       │",
+            "type": "colors",
+            "symbol": "circle"
+        },
+        {
+            "key": "╰──────────────────╯",
+            "type": "custom"
+        }
+    ]
+
+ 
+}
