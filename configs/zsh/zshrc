@@ -1,0 +1,49 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+HISTFILE="$HOME/.zsh_history"  
+HISTSIZE=10000                       # in-memory history size
+SAVEHIST=10000                       # number of lines to save to HISTFILE
+setopt SHARE_HISTORY                 # share history across sessions
+setopt HIST_IGNORE_DUPS              # ignore duplicate commands
+setopt HIST_IGNORE_SPACE             # ignore commands starting with space
+setopt HIST_FIND_NO_DUPS  
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+# for working with ssh
+#eval "$(ssh-agent -s)"
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+source ~/.rvm/scripts/rvm
+fastfetch -c ~/.dotfiles/configs/fastfetch/config.jsonc
+
+plugins_path="$HOME/.dotfiles/configs/zsh/plugins"
+fpath=($plugins_path/zsh-completions/src $fpath)
+autoload -U compinit 
+compinit
+
+#Plugin Loading:
+source $plugins_path/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $plugins_path/archlinux/archlinux.plugin.zsh
+source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
+export YSU_MESSAGE_POSITION="after"
+#export YSU_MODE=ALL # exec check_alias_usage to find exisiting alias
+
+source ~/.dotfiles/configs/zsh/powerlevel10k/powerlevel10k.zsh-theme
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.dotfiles/configs/zsh/p10k.zsh ]] || source ~/.dotfiles/configs/zsh/p10k.zsh
+
+source $plugins_path/sudo-plugin/sudo.plugin.zsh # add sudo as prefix to the command
+source $plugins_path/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $plugins_path/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=green,bold'
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=red,bold'
+
