@@ -1,28 +1,32 @@
 {
   "$schema": "/etc/xdg/swaync/configSchema.json",
+  //"ignore-gtk-theme": true,
   "positionX": "right",
   "positionY": "top",
   "layer": "overlay",
   "layer-shell": true,
   "cssPriority": "user",
+  "control-center-positionY": "top",
   "control-center-layer": "top",
-  "control-center-margin-top": 15,
+  "control-center-margin-top": 0,
   "control-center-margin-bottom": 10,
   "control-center-margin-right": 10,
   "control-center-margin-left": 0,
+  "constrol-center-execlusive-zone": true,
   "notification-2fa-action": true, /*default is true*/
   "notification-inline-replies": false,
   "notification-icon-size": 32,
   "notification-body-image-height": 250,
   "notification-body-image-width": 250,
   "notification-window-width": 400, /*default is 500*/
-  "timeout": 5,
-  "timeout-low": 3,
+//  "notification-window-height": 1000,
+  "timeout": 10,
+  "timeout-low": 5,
   "timeout-critical": 0,
   "keyboard-shortcuts": true,
-  "fit-to-screen": false, /*default is true*/
+  "fit-to-screen": true, /*default is true*/
   "relative-timestamps": true,
-  "control-center-width": 500,
+  "control-center-width": 600,
   "control-center-height": 900,
   "image-visibility": "when-available",
   "transition-time": 200,
@@ -61,8 +65,8 @@
       "text": "Label Text"
     },
     "mpris": {
-      "image-size": 50,
-      "image-radius": 12
+      "image-size": 55,
+      "image-radius": 15
     },
     "volume": {
         "label": "󰕾", /*change size to 18px using css*/
@@ -84,8 +88,12 @@
             "command": "shutdown now"
           },
           {
-            "label": " Reboot",
+            "label": "Reboot",
             "command": "reboot"
+          },
+          {
+            "label": "Logout",
+            "command": "hyprctl dispatch exit"
           }
         ]
       },
