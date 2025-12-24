@@ -1,0 +1,62 @@
+@import "../../.dotfiles/configs/nwg-dock-hyprland/color-themes/mocha.css";
+
+window {
+    background: linear-gradient(
+        135deg,
+        rgba(30, 30, 46, 0.7),  /* Surface #1E1E2E */
+        rgba(24, 24, 37, 0.7)   /* Mantle #181825 */
+    );
+    border-radius: 20px;
+    border: 1px solid @peach;
+}
+/*
+window {Blue --> lavender
+   background: linear-gradient(
+        135deg,
+        rgba(137, 180, 250, 0.3),  
+        rgba(180, 190, 254, 0.3)   
+    );
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+*/
+
+
+
+
+#box {
+  /* Define attributes of the box surrounding icons here */
+  padding: 10px;
+
+}
+
+#active {
+	/* This is to underline the button representing the currently active window */
+	border-bottom: solid 2px;
+	border-color: @blue;
+}
+
+button, image {
+	background: none;
+	border-style: none;
+	box-shadow: none;
+	color: #999;
+}
+
+button {
+	padding: 4px;
+	margin-left: 4px;
+	margin-right: 4px;
+	color: #eee;
+  font-size: 12px
+}
+
+button:hover {
+	background-color: @lavender;
+	border-radius: 20px;
+}
+
+button:focus {
+	box-shadow: none
+}
+
