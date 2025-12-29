@@ -47,3 +47,6 @@ bindkey '^[[B' history-substring-search-down
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=green,bold'
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=red,bold'
 
+
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word

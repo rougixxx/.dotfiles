@@ -1,3 +1,5 @@
 #!/usr/bin/bash
-swww img ~/.dotfiles/wallpapers/climber2.png
+swww img ~/.dotfiles/wallpapers/climber2.png --transition-type grow  --transition-duration 1
+
+  
 # IN case using pywayl  `pyhton-pywal16` : && wal -i ~/.dotfiles/wallpapers/space-3.jpg

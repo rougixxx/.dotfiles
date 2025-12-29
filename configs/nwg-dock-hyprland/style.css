@@ -21,9 +21,6 @@ window {Blue --> lavender
 }
 */
 
-
-
-
 #box {
   /* Define attributes of the box surrounding icons here */
   padding: 10px;
@@ -44,7 +41,7 @@ button, image {
 }
 
 button {
-	padding: 4px;
+	padding: 6px;
 	margin-left: 4px;
 	margin-right: 4px;
 	color: #eee;
