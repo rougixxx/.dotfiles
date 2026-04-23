@@ -19,7 +19,10 @@ eval "$(pyenv init - bash)"
 # for working with ssh
 #eval "$(ssh-agent -s)"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:$HOME/.rvm/bin:$(go env GOPATH)/bin"
+
+
+
 source ~/.rvm/scripts/rvm
 fastfetch -c ~/.dotfiles/configs/fastfetch/config.jsonc
 
@@ -50,3 +53,5 @@ export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=red,bold'
 
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
+export PATH="$HOME/.npm-global/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"

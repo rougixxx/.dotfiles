@@ -1,0 +1,13 @@
+#!/bin/bash
+# shell script to return keybindings
+TOOLTIP='Hypr Keybinds\n'\
+'SUPER + T = Start Kitty\n'\
+'SUPER + Q = Close Window\n'\
+'SUPER + L = Lock Screen\n'\
+'SUPER + M = Logout menu\n'\
+'SUPER + E = Thunar File Manager\n'\
+'SUPER + V = Toggle Float\n'\
+'SUPER + SPACE = App Launcher\n'\
+'SUPER + S = Screenshot'
+
+echo '{"tooltip": "'$TOOLTIP'"}'

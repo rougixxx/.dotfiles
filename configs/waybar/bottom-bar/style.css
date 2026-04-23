@@ -67,8 +67,13 @@ tooltip label{
 #temperature.critical {
     color: #ff0000;
 }
-
-
+#custom-power_btn {
+    margin-right: 10px;
+    font-size: 20px;
+}
+#custom-shortcuts {
+    
+}
 /* this the window making the widsth*/
 
 

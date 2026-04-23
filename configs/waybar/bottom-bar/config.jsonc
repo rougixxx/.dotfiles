@@ -8,7 +8,7 @@
     "height": 30,
     "modules-left": ["custom/launch_wofi", "custom/launch_firefox", "custom/launch_kitty","custom/launch_thunar"],
     "modules-center": [ "hyprland/window" ],
-    "modules-right": ["temperature","custom/weather", "custom/power_btn"],
+    "modules-right": ["temperature","custom/weather", "custom/shortcuts", "custom/power_btn"],
     
 
     "custom/launch_wofi": {
@@ -49,7 +49,12 @@
           "(.*) - Obsidian Vault (.*)": "Notes-> [$1]",
     }
     },
-
+    "custom/shortcuts" : {
+        "format": "󰐾 ",
+        "exec": "~/.dotfiles/configs/waybar/bottom-bar/scripts/return_shortcuts",
+        "return-type" : "json",
+        "tooltip": true
+    },  
     "custom/power_btn": {
         "format": "",
         "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
